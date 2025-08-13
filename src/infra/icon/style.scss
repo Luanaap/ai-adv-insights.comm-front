@@ -1,0 +1,3462 @@
+$asset-path: "https://orquestracdn.btgpactual.com";
+@import url("https://orquestracdn.btgpactual.com/themes/v6/btg_styles_lightmode.theme.css");
+
+.circle-div {
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: "icomoon-orquestra" !important; // sass-lint:disable-line no-important
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: 1;
+	text-transform: none;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	i {
+		font-family: "icomoon-orquestra" !important; // sass-lint:disable-line no-important
+		font-style: normal;
+		font-variant: normal;
+		font-weight: normal;
+		line-height: 1;
+		text-transform: none;
+
+		/* Better Font Rendering =========== */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+}
+
+.icon-container {
+	display: inline-flex;
+
+	&__click-event {
+		cursor: pointer;
+	}
+
+	&__circle {
+		display: inline-flex;
+		position: relative;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		padding: 10px;
+		background-color: var(--neutral-pressed);
+
+		&--inverse {
+			background-color: var(--neutral-base-inverse);
+		}
+
+		&--outline-base {
+			border: 1px solid var(--outline-base);
+		}
+	}
+
+	&__icon {
+		&--status-error {
+			color: var(--error);
+		}
+
+		&--status-error-inverse {
+			color: var(--error-inverse);
+		}
+
+		&--status-success {
+			color: var(--success);
+		}
+
+		&--status-success-inverse {
+			color: var(--success-inverse);
+		}
+
+		&--status-warning {
+			color: var(--warning);
+		}
+
+		&--status-warning-inverse {
+			color: var(--warning-inverse);
+		}
+
+		&--status-informative {
+			color: var(--informative);
+		}
+
+		&--status-informative-inverse {
+			color: var(--informative-inverse);
+		}
+
+		&--emphasis-base-low {
+			color: var(--emphasis-base-low);
+		}
+
+		&--emphasis-base-medium {
+			color: var(--emphasis-base-medium);
+		}
+
+		&--emphasis-base-high {
+			color: var(--emphasis-base-high);
+		}
+
+		&--emphasis-base-disabled {
+			color: var(--emphasis-base-disabled);
+		}
+
+		&--emphasis-base-low-inverse {
+			color: var(--emphasis-base-low-inverse);
+		}
+
+		&--emphasis-base-medium-inverse {
+			color: var(--emphasis-base-medium-inverse);
+		}
+
+		&--emphasis-base-high-inverse {
+			color: var(--emphasis-base-high-inverse);
+		}
+
+		&--emphasis-base-disabled-inverse {
+			color: var(--emphasis-base-disabled-inverse);
+		}
+
+		&--emphasis-base-medium-70 {
+			color: var(--emphasis-base-medium);
+		}
+
+		&--fixed-white {
+			color: var(--fixed-white);
+		}
+
+		&--primary-base {
+			color: var(--primary-base);
+		}
+
+		&--primary-base-inverse {
+			color: var(--primary-base-inverse);
+		}
+
+		&--secondary-base {
+			color: var(--secondary-base);
+		}
+
+		&--secondary-base-inverse {
+			color: var(--secondary-base-inverse);
+		}
+	}
+
+	&__block {
+		display: inline-flex;
+		position: relative;
+		cursor: default;
+		animation: scale-in-center 150ms cubic-bezier(0, 0, 0.25, 1) forwards;
+
+		&__counter {
+			display: inline-flex;
+			position: absolute;
+			border-radius: 50%;
+			animation: scale-in-center 100ms cubic-bezier(0, 0, 0.25, 1) 100ms forwards;
+
+			&--size-16 {
+				top: -2px;
+				right: -2px;
+			}
+
+			&--size-24 {
+				top: -2px;
+				right: -2px;
+			}
+
+			&--size-32 {
+				top: 0;
+				right: 0;
+			}
+
+			&--size-40 {
+				top: -2px;
+				right: -2px;
+			}
+
+			&--size-48 {
+				top: 0;
+				right: 0;
+			}
+
+			&--size-64 {
+				top: 0;
+				right: 0;
+			}
+
+			&--size-72 {
+				top: 2px;
+				right: 2px;
+			}
+
+			&--size-80 {
+				top: 4px;
+				right: 4px;
+			}
+
+			&--size-96 {
+				top: 6px;
+				right: 6px;
+			}
+
+			&--size-112 {
+				top: 8px;
+				right: 8px;
+			}
+
+			&--size-128 {
+				top: 10px;
+				right: 10px;
+			}
+		}
+	}
+}
+
+.selected:hover {
+	background: #ccc;
+	cursor: pointer;
+}
+.selected:active {
+	background: var(--neutral-state-enabled);
+}
+.flex-container {
+	display: flex;
+	flex-wrap: nowrap;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+}
+.flex-items:nth-child(n) {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	flex-grow: 0;
+	flex-shrink: 1;
+	flex-basis: auto;
+	align-self: auto;
+	order: 0;
+	width: 135px;
+	height: 90px;
+}
+.icon {
+	display: block;
+	margin-top: 7%;
+}
+.icon-name {
+	display: block;
+	margin-top: 1%;
+}
+.icon-h2 {
+	display: block;
+	font-size: 1.5em;
+	margin-block-start: 0.83em;
+	margin-block-end: 0.83em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	font-weight: bold;
+	unicode-bidi: isolate;
+}
+
+@font-face {
+	font-family: "icomoon-orquestra";
+	font-style: normal;
+	font-weight: normal;
+	font-display: block;
+	src:
+		url("#{$asset-path}/fonts/icons-fonts/v13/icomoon-orquestra.eot"),
+		url("#{$asset-path}/fonts/icons-fonts/v13/icomoon-orquestra.eot") format("embedded-opentype"),
+		url("#{$asset-path}/fonts/icons-fonts/v13/icomoon-orquestra.ttf") format("truetype"),
+		url("#{$asset-path}/fonts/icons-fonts/v13/icomoon-orquestra.woff") format("woff"),
+		url("#{$asset-path}/fonts/icons-fonts/v13/icomoon-orquestra.woff2") format("woff2"),
+		url("#{$asset-path}/fonts/icons-fonts/v13/icomoon-orquestra.svg#icomoon-orquestra") format("svg");
+}
+
+.icon {
+	&-transport-and-storage {
+		&:before {
+			content: "\eaf4";
+		}
+	}
+
+	&-public-services {
+		&:before {
+			content: "\eaf3";
+		}
+	}
+
+	&-manufacture {
+		&:before {
+			content: "\eaef";
+		}
+	}
+
+	&-open-finance {
+		&:before {
+			content: "\eaf1";
+		}
+	}
+
+	&-batch-on {
+		&:before {
+			content: "\eaed";
+		}
+	}
+
+	&-dislike-on {
+		&:before {
+			content: "\eaee";
+		}
+	}
+
+	&-management-on {
+		&:before {
+			content: "\eaf0";
+		}
+	}
+
+	&-open-finance {
+		&:before {
+			content: "\eaf1";
+		}
+	}
+
+	&-operation {
+		&:before {
+			content: "\eaf2";
+		}
+	}
+
+	&-online-shopping {
+		&:before {
+			content: "\eaec";
+		}
+	}
+
+	&-market-grid-on {
+		&:before {
+			content: "\eae8";
+		}
+	}
+
+	&-market-grid {
+		&:before {
+			content: "\eae9";
+		}
+	}
+
+	&-tools-search-on {
+		&:before {
+			content: "\eaea";
+		}
+	}
+
+	&-x {
+		&:before {
+			content: "\eaeb";
+		}
+	}
+
+	&-cashback-points {
+		&:before {
+			content: "\eadc";
+		}
+	}
+
+	&-decision-tree {
+		&:before {
+			content: "\eadd";
+		}
+	}
+
+	&-duplicate {
+		&:before {
+			content: "\eade";
+		}
+	}
+
+	&-exchanged-traded-note {
+		&:before {
+			content: "\eadf";
+		}
+	}
+
+	&-invest-points {
+		&:before {
+			content: "\eae0";
+		}
+	}
+
+	&-invoice-points {
+		&:before {
+			content: "\eae1";
+		}
+	}
+
+	&-maximize {
+		&:before {
+			content: "\eae2";
+		}
+	}
+
+	&-minimize {
+		&:before {
+			content: "\eae3";
+		}
+	}
+
+	&-notification-off {
+		&:before {
+			content: "\eae4";
+		}
+	}
+
+	&-open-insurance {
+		&:before {
+			content: "\eae5";
+		}
+	}
+
+	&-points-btg {
+		&:before {
+			content: "\eae6";
+		}
+	}
+
+	&-transfer-points {
+		&:before {
+			content: "\eae7";
+		}
+	}
+
+	&-volatility {
+		&:before {
+			content: "\eacc";
+		}
+	}
+
+	&-trend {
+		&:before {
+			content: "\eacd";
+		}
+	}
+
+	&-theta {
+		&:before {
+			content: "\eace";
+		}
+	}
+
+	&-rho {
+		&:before {
+			content: "\eacf";
+		}
+	}
+
+	&-remove {
+		&:before {
+			content: "\ead0";
+		}
+	}
+
+	&-oscillation {
+		&:before {
+			content: "\ead1";
+		}
+	}
+
+	&-more-options-vertical {
+		&:before {
+			content: "\ead2";
+		}
+	}
+
+	&-microsoft {
+		&:before {
+			content: "\ead3";
+		}
+	}
+
+	&-indicators {
+		&:before {
+			content: "\ead4";
+		}
+	}
+
+	&-gamma {
+		&:before {
+			content: "\ead5";
+		}
+	}
+
+	&-financial-volume {
+		&:before {
+			content: "\ead6";
+		}
+	}
+
+	&-delta {
+		&:before {
+			content: "\ead7";
+		}
+	}
+
+	&-clock-on {
+		&:before {
+			content: "\ead8";
+		}
+	}
+
+	&-beta {
+		&:before {
+			content: "\ead9";
+		}
+	}
+
+	&-artificial-intelligence {
+		&:before {
+			content: "\eada";
+		}
+	}
+
+	&-alpha {
+		&:before {
+			content: "\eadb";
+		}
+	}
+	&-bring-front {
+		&:before {
+			content: "\eaca";
+		}
+	}
+
+	&-send-back {
+		&:before {
+			content: "\eacb";
+		}
+	}
+
+	&-draw-circle {
+		&:before {
+			content: "\eabd";
+		}
+	}
+
+	&-draw-elipse {
+		&:before {
+			content: "\eabe";
+		}
+	}
+
+	&-draw-marker {
+		&:before {
+			content: "\eabf";
+		}
+	}
+
+	&-eraser {
+		&:before {
+			content: "\eac0";
+		}
+	}
+
+	&-file-horizontal {
+		&:before {
+			content: "\eac1";
+		}
+	}
+
+	&-gain-stop {
+		&:before {
+			content: "\eac2";
+		}
+	}
+
+	&-magnet-off {
+		&:before {
+			content: "\eac3";
+		}
+	}
+
+	&-speed-high {
+		&:before {
+			content: "\eac4";
+		}
+	}
+
+	&-speed-max {
+		&:before {
+			content: "\eac5";
+		}
+	}
+
+	&-speed-normal {
+		&:before {
+			content: "\eac6";
+		}
+	}
+
+	&-speed-slow {
+		&:before {
+			content: "\eac7";
+		}
+	}
+
+	&-strong-magnet {
+		&:before {
+			content: "\eac8";
+		}
+	}
+
+	&-wifi-off {
+		&:before {
+			content: "\eac9";
+		}
+	}
+	&-align-center {
+		&:before {
+			content: "\ea89";
+		}
+	}
+
+	&-align-justify {
+		&:before {
+			content: "\ea8b";
+		}
+	}
+
+	&-align-left {
+		&:before {
+			content: "\ea8c";
+		}
+	}
+
+	&-align-right {
+		&:before {
+			content: "\ea8f";
+		}
+	}
+
+	&-anchor-channel {
+		&:before {
+			content: "\ea90";
+		}
+	}
+
+	&-anchor-point {
+		&:before {
+			content: "\ea91";
+		}
+	}
+
+	&-cancel-account {
+		&:before {
+			content: "\ea96";
+		}
+	}
+
+	&-card-list-view {
+		&:before {
+			content: "\ea97";
+		}
+	}
+
+	&-card-view {
+		&:before {
+			content: "\ea98";
+		}
+	}
+
+	&-concierge {
+		&:before {
+			content: "\ea99";
+		}
+	}
+
+	&-corporation {
+		&:before {
+			content: "\ea9a";
+		}
+	}
+
+	&-email-open {
+		&:before {
+			content: "\ea9b";
+		}
+	}
+
+	&-embed {
+		&:before {
+			content: "\ea9c";
+		}
+	}
+
+	&-explore-on {
+		&:before {
+			content: "\ea9d";
+		}
+	}
+
+	&-explore {
+		&:before {
+			content: "\ea9e";
+		}
+	}
+
+	&-fixed-income-chart-on {
+		&:before {
+			content: "\ea9f";
+		}
+	}
+
+	&-gas {
+		&:before {
+			content: "\eaa0";
+		}
+	}
+
+	&-investments-on {
+		&:before {
+			content: "\eaa1";
+		}
+	}
+
+	&-investments {
+		&:before {
+			content: "\eaa2";
+		}
+	}
+
+	&-meter-high {
+		&:before {
+			content: "\eaa3";
+		}
+	}
+
+	&-meter-low {
+		&:before {
+			content: "\eaa4";
+		}
+	}
+
+	&-meter-neutral {
+		&:before {
+			content: "\eaa5";
+		}
+	}
+
+	&-news {
+		&:before {
+			content: "\eaa6";
+		}
+	}
+
+	&-notification-add-on {
+		&:before {
+			content: "\eaa7";
+		}
+	}
+
+	&-numbered-list {
+		&:before {
+			content: "\eaa8";
+		}
+	}
+
+	&-plantation {
+		&:before {
+			content: "\eaa9";
+		}
+	}
+
+	&-redo {
+		&:before {
+			content: "\eaaa";
+		}
+	}
+
+	&-send {
+		&:before {
+			content: "\eaab";
+		}
+	}
+
+	&-style-bold {
+		&:before {
+			content: "\eaac";
+		}
+	}
+
+	&-style-italic {
+		&:before {
+			content: "\eaad";
+		}
+	}
+
+	&-style-paragraph {
+		&:before {
+			content: "\eaae";
+		}
+	}
+
+	&-style-quote {
+		&:before {
+			content: "\eaaf";
+		}
+	}
+
+	&-style-strikethroug {
+		&:before {
+			content: "\eab0";
+		}
+	}
+
+	&-style-underline {
+		&:before {
+			content: "\eab1";
+		}
+	}
+
+	&-sugar-and-fuel {
+		&:before {
+			content: "\eab2";
+		}
+	}
+
+	&-table {
+		&:before {
+			content: "\eab3";
+		}
+	}
+
+	&-text-style {
+		&:before {
+			content: "\eab4";
+		}
+	}
+
+	&-tools-filter-funnel {
+		&:before {
+			content: "\eab5";
+		}
+	}
+
+	&-traffic-and-highways {
+		&:before {
+			content: "\eab6";
+		}
+	}
+
+	&-treemap {
+		&:before {
+			content: "\eab7";
+		}
+	}
+
+	&-undo {
+		&:before {
+			content: "\eab8";
+		}
+	}
+
+	&-user-add-on {
+		&:before {
+			content: "\eab9";
+		}
+	}
+
+	&-user-login-on {
+		&:before {
+			content: "\eaba";
+		}
+	}
+
+	&-video-on {
+		&:before {
+			content: "\eabb";
+		}
+	}
+
+	&-video {
+		&:before {
+			content: "\eabc";
+		}
+	}
+
+	&-unlink {
+		&:before {
+			content: "\ea70";
+		}
+	}
+
+	&-tools-set {
+		&:before {
+			content: "\ea6b";
+		}
+	}
+
+	&-settings {
+		&:before {
+			content: "\ea6c";
+		}
+	}
+
+	&-folder-upload {
+		&:before {
+			content: "\ea6d";
+		}
+	}
+
+	&-football {
+		&:before {
+			content: "\e9960";
+		}
+	}
+
+	&-folder-check {
+		&:before {
+			content: "\ea6e";
+		}
+	}
+
+	&-link {
+		&:before {
+			content: "\ea6f";
+		}
+	}
+
+	&-associations-on {
+		&:before {
+			content: "\e935";
+		}
+	}
+
+	&-bank-on {
+		&:before {
+			content: "\e93f";
+		}
+	}
+
+	&-benefits-on {
+		&:before {
+			content: "\e9d5";
+		}
+	}
+
+	&-bulb-on {
+		&:before {
+			content: "\e9d9";
+		}
+	}
+
+	&-cash-withdraw-on {
+		&:before {
+			content: "\ea07";
+		}
+	}
+
+	&-contract-agreement-on {
+		&:before {
+			content: "\ea4d";
+		}
+	}
+
+	&-current-wallet-on {
+		&:before {
+			content: "\ea52";
+		}
+	}
+
+	&-current-wallet {
+		&:before {
+			content: "\e94b";
+		}
+	}
+
+	&-color {
+		&:before {
+			content: "\ea72";
+		}
+	}
+
+	&-comment {
+		&:before {
+			content: "\ea73";
+		}
+	}
+
+	&-dark {
+		&:before {
+			content: "\ea74";
+		}
+	}
+
+	&-draw-arrow {
+		&:before {
+			content: "\ea75";
+		}
+	}
+
+	&-draw-pencil {
+		&:before {
+			content: "\ea76";
+		}
+	}
+
+	&-draw-square {
+		&:before {
+			content: "\ea77";
+		}
+	}
+
+	&-draw-triangle {
+		&:before {
+			content: "\ea78";
+		}
+	}
+
+	&-disconnect-devices-on {
+		&:before {
+			content: "\ea59";
+		}
+	}
+
+	&-exchange-on {
+		&:before {
+			content: "\ea5a";
+		}
+	}
+
+	&-financing-on {
+		&:before {
+			content: "\ea5b";
+		}
+	}
+
+	&-file-on {
+		&:before {
+			content: "\ea79";
+		}
+	}
+
+	&-glassdoor {
+		&:before {
+			content: "\ea5c";
+		}
+	}
+
+	&-insurance-on {
+		&:before {
+			content: "\ea5d";
+		}
+	}
+
+	&-invest-on {
+		&:before {
+			content: "\ea5e";
+		}
+	}
+
+	&-operationalization-on {
+		&:before {
+			content: "\ea5f";
+		}
+	}
+
+	&-order-sent {
+		&:before {
+			content: "\ea60";
+		}
+	}
+
+	&-payroll-on {
+		&:before {
+			content: "\ea61";
+		}
+	}
+
+	&-pizza-chart-on {
+		&:before {
+			content: "\ea62";
+		}
+	}
+
+	&-products-on {
+		&:before {
+			content: "\ea63";
+		}
+	}
+
+	&-question-on {
+		&:before {
+			content: "\ea64";
+		}
+	}
+
+	&-school-on {
+		&:before {
+			content: "\ea65";
+		}
+	}
+
+	&-settings-on {
+		&:before {
+			content: "\ea66";
+		}
+	}
+
+	&-tv-pay-on {
+		&:before {
+			content: "\ea67";
+		}
+	}
+
+	&-user-clients-on {
+		&:before {
+			content: "\ea68";
+		}
+	}
+
+	&-user-manage-on {
+		&:before {
+			content: "\ea69";
+		}
+	}
+
+	&-wallet-virtual-on {
+		&:before {
+			content: "\ea6a";
+		}
+	}
+
+	&-token {
+		&:before {
+			content: "\e932";
+		}
+	}
+
+	&-renegociations {
+		&:before {
+			content: "\e933";
+		}
+	}
+
+	&-connection-error {
+		&:before {
+			content: "\e934";
+		}
+	}
+
+	&-chevron-down {
+		&:before {
+			content: "\ea54";
+		}
+	}
+
+	&-chevron-left {
+		&:before {
+			content: "\ea55";
+		}
+	}
+
+	&-chevron-right {
+		&:before {
+			content: "\ea56";
+		}
+	}
+
+	&-chevron-up {
+		&:before {
+			content: "\ea57";
+		}
+	}
+
+	&-private-pension {
+		&:before {
+			content: "\ea58";
+		}
+	}
+
+	&-add-circle {
+		&:before {
+			content: "\ea42";
+		}
+	}
+
+	&-bookmark-on {
+		&:before {
+			content: "\ea43";
+		}
+	}
+
+	&-card-on {
+		&:before {
+			content: "\ea44";
+		}
+	}
+
+	&-drag-drop {
+		&:before {
+			content: "\ea45";
+		}
+	}
+
+	&-drag-drop-vertical {
+		&:before {
+			content: "\e9700";
+		}
+	}
+
+	&-home-on {
+		&:before {
+			content: "\ea46";
+		}
+	}
+
+	&-investment-fund {
+		&:before {
+			content: "\ea47";
+		}
+	}
+
+	&-language {
+		&:before {
+			content: "\ea48";
+		}
+	}
+
+	&-linkedin {
+		&:before {
+			content: "\ea49";
+		}
+	}
+
+	&-light {
+		&:before {
+			content: "\ea7a";
+		}
+	}
+
+	&-line-density {
+		&:before {
+			content: "\ea7b";
+		}
+	}
+
+	&-line-style {
+		&:before {
+			content: "\ea7c";
+		}
+	}
+
+	&-nft {
+		&:before {
+			content: "\ea4a";
+		}
+	}
+
+	&-podcast {
+		&:before {
+			content: "\ea4b";
+		}
+	}
+
+	&-remove-circle {
+		&:before {
+			content: "\ea4c";
+		}
+	}
+
+	&-save {
+		&:before {
+			content: "\ea4e";
+		}
+	}
+
+	&-spotify {
+		&:before {
+			content: "\ea4f";
+		}
+	}
+
+	&-support-on {
+		&:before {
+			content: "\ea50";
+		}
+	}
+
+	&-telegram {
+		&:before {
+			content: "\ea51";
+		}
+	}
+
+	&-twitter {
+		&:before {
+			content: "\ea53";
+		}
+	}
+
+	&-add-minus {
+		&:before {
+			content: "\e900";
+		}
+	}
+
+	&-add-plus {
+		&:before {
+			content: "\e901";
+		}
+	}
+
+	&-aggressive {
+		&:before {
+			content: "\e902";
+		}
+	}
+
+	&-agribusiness {
+		&:before {
+			content: "\e903";
+		}
+	}
+
+	&-agriculture {
+		&:before {
+			content: "\e904";
+		}
+	}
+
+	&-agro {
+		&:before {
+			content: "\e905";
+		}
+	}
+
+	&-airline {
+		&:before {
+			content: "\e906";
+		}
+	}
+
+	&-anchor-diagonal {
+		&:before {
+			content: "\e9090";
+		}
+	}
+
+	&-anchor-fibonacci-levels {
+		&:before {
+			content: "\e90a0";
+		}
+	}
+
+	&-anchor-horizontal {
+		&:before {
+			content: "\e90b0";
+		}
+	}
+
+	&-android {
+		&:before {
+			content: "\e907";
+		}
+	}
+
+	&-animal {
+		&:before {
+			content: "\e908";
+		}
+	}
+
+	&-anticipate {
+		&:before {
+			content: "\e909";
+		}
+	}
+
+	&-apple {
+		&:before {
+			content: "\e90a";
+		}
+	}
+
+	&-archive {
+		&:before {
+			content: "\e90b";
+		}
+	}
+
+	&-associations {
+		&:before {
+			content: "\e90c";
+		}
+	}
+
+	&-attach {
+		&:before {
+			content: "\e90d";
+		}
+	}
+
+	&-attention {
+		&:before {
+			content: "\e90e";
+		}
+	}
+
+	&-automatic-transfer {
+		&:before {
+			content: "\e90f";
+		}
+	}
+
+	&-bank {
+		&:before {
+			content: "\e910";
+		}
+	}
+
+	&-bank-like {
+		&:before {
+			content: "\e9160";
+		}
+	}
+
+	&-bank-remove {
+		&:before {
+			content: "\e9180";
+		}
+	}
+
+	&-basic-materials {
+		&:before {
+			content: "\e91b0";
+		}
+	}
+
+	&-bank-branch {
+		&:before {
+			content: "\e911";
+		}
+	}
+
+	&-bank-slip {
+		&:before {
+			content: "\e912";
+		}
+	}
+
+	&-batch {
+		&:before {
+			content: "\e913";
+		}
+	}
+
+	&-batch-transfer {
+		&:before {
+			content: "\e914";
+		}
+	}
+
+	&-beauty {
+		&:before {
+			content: "\e915";
+		}
+	}
+
+	&-benefits {
+		&:before {
+			content: "\e916";
+		}
+	}
+
+	&-bills-receive {
+		&:before {
+			content: "\e917";
+		}
+	}
+
+	&-bitcoin {
+		&:before {
+			content: "\e918";
+		}
+	}
+
+	&-block {
+		&:before {
+			content: "\e919";
+		}
+	}
+
+	&-booklet {
+		&:before {
+			content: "\e91a";
+		}
+	}
+
+	&-bookmark {
+		&:before {
+			content: "\e91b";
+		}
+	}
+
+	&-borrower-services {
+		&:before {
+			content: "\e91c";
+		}
+	}
+
+	&-bulb {
+		&:before {
+			content: "\e91d";
+		}
+	}
+
+	&-camera {
+		&:before {
+			content: "\e91e";
+		}
+	}
+
+	&-cancel {
+		&:before {
+			content: "\e91f";
+		}
+	}
+
+	&-cancel-orders {
+		&:before {
+			content: "\e920";
+		}
+	}
+
+	&-cancel-purchase {
+		&:before {
+			content: "\e921";
+		}
+	}
+
+	&-cancel-schedule {
+		&:before {
+			content: "\e92d0";
+		}
+	}
+
+	&-candle-chart {
+		&:before {
+			content: "\e922";
+		}
+	}
+
+	&-capital-goods {
+		&:before {
+			content: "\e923";
+		}
+	}
+
+	&-car {
+		&:before {
+			content: "\e924";
+		}
+	}
+
+	&-card {
+		&:before {
+			content: "\e925";
+		}
+	}
+
+	&-car-fine {
+		&:before {
+			content: "\e926";
+		}
+	}
+
+	&-car-parking {
+		&:before {
+			content: "\e927";
+		}
+	}
+
+	&-car-rental {
+		&:before {
+			content: "\e928";
+		}
+	}
+
+	&-cash-withdraw {
+		&:before {
+			content: "\e929";
+		}
+	}
+
+	&-celebration {
+		&:before {
+			content: "\e92a";
+		}
+	}
+
+	&-change-user {
+		&:before {
+			content: "\e92b";
+		}
+	}
+
+	&-change-position {
+		&:before {
+			content: "\ea71";
+		}
+	}
+
+	&-chargeback {
+		&:before {
+			content: "\e92c";
+		}
+	}
+
+	&-charging-rule {
+		&:before {
+			content: "\e92d";
+		}
+	}
+
+	&-chat {
+		&:before {
+			content: "\e92e";
+		}
+	}
+
+	&-check {
+		&:before {
+			content: "\e92f";
+		}
+	}
+
+	&-checking-copy {
+		&:before {
+			content: "\e930";
+		}
+	}
+
+	&-chemicals {
+		&:before {
+			content: "\e931";
+		}
+	}
+
+	&-chip {
+		&:before {
+			content: "\e936";
+		}
+	}
+
+	&-cinema {
+		&:before {
+			content: "\e937";
+		}
+	}
+
+	&-claim-notice {
+		&:before {
+			content: "\e938";
+		}
+	}
+
+	&-clock {
+		&:before {
+			content: "\e939";
+		}
+	}
+
+	&-close {
+		&:before {
+			content: "\e93a";
+		}
+	}
+
+	&-coin {
+		&:before {
+			content: "\e93b";
+		}
+	}
+
+	&-commission {
+		&:before {
+			content: "\e93c";
+		}
+	}
+
+	&-communication {
+		&:before {
+			content: "\e94c0";
+		}
+	}
+
+	&-competition {
+		&:before {
+			content: "\e93d";
+		}
+	}
+
+	&-configuration {
+		&:before {
+			content: "\e93e";
+		}
+	}
+
+	&-conservative {
+		&:before {
+			content: "\e940";
+		}
+	}
+
+	&-construction {
+		&:before {
+			content: "\e941";
+		}
+	}
+
+	&-contactless {
+		&:before {
+			content: "\e942";
+		}
+	}
+
+	&-contactless-password {
+		&:before {
+			content: "\e943";
+		}
+	}
+
+	&-content-and-services {
+		&:before {
+			content: "\e944";
+		}
+	}
+
+	&-contract-agreement {
+		&:before {
+			content: "\e945";
+		}
+	}
+
+	&-contract-signature {
+		&:before {
+			content: "\e946";
+		}
+	}
+
+	&-corporate-floors {
+		&:before {
+			content: "\e947";
+		}
+	}
+
+	&-cruise {
+		&:before {
+			content: "\e948";
+		}
+	}
+
+	&-cryptocoin {
+		&:before {
+			content: "\e949";
+		}
+	}
+
+	&-cryptopedia {
+		&:before {
+			content: "\e95b0";
+		}
+	}
+
+	&-culture {
+		&:before {
+			content: "\e94a";
+		}
+	}
+
+	&-current-account-on {
+		&:before {
+			content: "\ea52";
+		}
+	}
+
+	&-current-account {
+		&:before {
+			content: "\e94b";
+		}
+	}
+
+	&-customer-service {
+		&:before {
+			content: "\ea88";
+		}
+	}
+
+	&-deposit {
+		&:before {
+			content: "\e94c";
+		}
+	}
+
+	&-digital-content {
+		&:before {
+			content: "\e94d";
+		}
+	}
+
+	&-direct-sale {
+		&:before {
+			content: "\e94e";
+		}
+	}
+
+	&-disconnect-devices {
+		&:before {
+			content: "\e94f";
+		}
+	}
+
+	&-dislike {
+		&:before {
+			content: "\e950";
+		}
+	}
+
+	&-doc-chargeback {
+		&:before {
+			content: "\e951";
+		}
+	}
+
+	&-doc-in {
+		&:before {
+			content: "\e952";
+		}
+	}
+
+	&-doc-doc {
+		&:before {
+			color: #2b7dd3;
+			content: "\e9660";
+		}
+	}
+
+	&-doc-ppt {
+		&:before {
+			color: #ed6b47;
+			content: "\e96b0";
+		}
+	}
+
+	&-doc-xls {
+		&:before {
+			color: #13753e;
+			content: "\e96d0";
+		}
+	}
+
+	&-doc-jpg {
+		&:before {
+			color: #3d8c9c;
+			content: "\e953";
+		}
+	}
+
+	&-doc-out {
+		&:before {
+			content: "\e954";
+		}
+	}
+
+	&-doc-pdf {
+		&:before {
+			color: #de545e;
+			content: "\e955";
+		}
+	}
+
+	&-doc-scheduled {
+		&:before {
+			content: "\e956";
+		}
+	}
+
+	&-down {
+		&:before {
+			content: "\e957";
+		}
+	}
+
+	&-arrow-down {
+		&:before {
+			content: "\ea92";
+		}
+	}
+
+	&-download {
+		&:before {
+			content: "\e958";
+		}
+	}
+
+	&-drink {
+		&:before {
+			content: "\e959";
+		}
+	}
+
+	&-drugstore {
+		&:before {
+			content: "\e95a";
+		}
+	}
+
+	&-duty-free {
+		&:before {
+			content: "\e95b";
+		}
+	}
+
+	&-edit-copy {
+		&:before {
+			content: "\e95c";
+		}
+	}
+
+	&-edit-pencil {
+		&:before {
+			content: "\e95d";
+		}
+	}
+
+	&-edit-trash {
+		&:before {
+			content: "\e95e";
+		}
+	}
+
+	&-eletronics {
+		&:before {
+			content: "\e95f";
+		}
+	}
+
+	&-email {
+		&:before {
+			content: "\e960";
+		}
+	}
+
+	&-empty {
+		&:before {
+			content: "\e961";
+		}
+	}
+
+	&-empty-search {
+		&:before {
+			content: "\e962";
+		}
+	}
+
+	&-endorsement {
+		&:before {
+			content: "\e963";
+		}
+	}
+
+	&-energy {
+		&:before {
+			content: "\e964";
+		}
+	}
+
+	&-environment {
+		&:before {
+			content: "\e965";
+		}
+	}
+
+	&-ethereum {
+		&:before {
+			content: "\e966";
+		}
+	}
+
+	&-ex-bank {
+		&:before {
+			content: "\e967";
+		}
+	}
+
+	&-exchange {
+		&:before {
+			content: "\e968";
+		}
+	}
+
+	&-expand-view {
+		&:before {
+			content: "\e969";
+		}
+	}
+
+	&-external-link {
+		&:before {
+			content: "\e96a";
+		}
+	}
+
+	&-facebook {
+		&:before {
+			content: "\e96b";
+		}
+	}
+
+	&-fashion {
+		&:before {
+			content: "\e96c";
+		}
+	}
+
+	&-favorite {
+		&:before {
+			content: "\e96d";
+		}
+	}
+
+	&-favorite-on {
+		&:before {
+			content: "\e96e";
+		}
+	}
+
+	&-fee {
+		&:before {
+			content: "\e96f";
+		}
+	}
+
+	&-fees-fines {
+		&:before {
+			content: "\e970";
+		}
+	}
+
+	&-fgc {
+		&:before {
+			content: "\e971";
+		}
+	}
+
+	&-file {
+		&:before {
+			content: "\e972";
+		}
+	}
+
+	&-financial-contribution {
+		&:before {
+			content: "\e973";
+		}
+	}
+
+	&-financing {
+		&:before {
+			content: "\e974";
+		}
+	}
+
+	&-fixed-income-chart {
+		&:before {
+			content: "\e98f0";
+		}
+	}
+
+	&-fixed-income {
+		&:before {
+			content: "\e975";
+		}
+	}
+
+	&-flash-auto {
+		&:before {
+			content: "\e976";
+		}
+	}
+
+	&-flash-off {
+		&:before {
+			content: "\e977";
+		}
+	}
+
+	&-flash-on {
+		&:before {
+			content: "\e978";
+		}
+	}
+
+	&-fuel {
+		&:before {
+			content: "\e979";
+		}
+	}
+
+	&-future {
+		&:before {
+			content: "\e97a";
+		}
+	}
+
+	&-gambling {
+		&:before {
+			content: "\e97b";
+		}
+	}
+
+	&-games {
+		&:before {
+			content: "\e97c";
+		}
+	}
+
+	&-google {
+		&:before {
+			content: "\e97d";
+		}
+	}
+
+	&-government {
+		&:before {
+			content: "\e97e";
+		}
+	}
+
+	&-gym {
+		&:before {
+			content: "\e97f";
+		}
+	}
+
+	&-health-and-education {
+		&:before {
+			content: "\e980";
+		}
+	}
+
+	&-high-financial-reserve {
+		&:before {
+			content: "\e981";
+		}
+	}
+
+	&-historic {
+		&:before {
+			content: "\e982";
+		}
+	}
+
+	&-home {
+		&:before {
+			content: "\e983";
+		}
+	}
+
+	&-home-and-decor {
+		&:before {
+			content: "\e984";
+		}
+	}
+
+	&-hospital {
+		&:before {
+			content: "\e985";
+		}
+	}
+
+	&-hotel {
+		&:before {
+			content: "\e986";
+		}
+	}
+
+	&-hotels {
+		&:before {
+			content: "\e987";
+		}
+	}
+
+	&-housing {
+		&:before {
+			content: "\e988";
+		}
+	}
+
+	&-house-location {
+		&:before {
+			content: "\e9a80";
+		}
+	}
+
+	&-hybrids {
+		&:before {
+			content: "\e989";
+		}
+	}
+
+	&-id-face {
+		&:before {
+			content: "\e98a";
+		}
+	}
+
+	&-id-facial-recognition {
+		&:before {
+			content: "\e98b";
+		}
+	}
+
+	&-id-touch {
+		&:before {
+			content: "\e98c";
+		}
+	}
+
+	&-image {
+		&:before {
+			content: "\e98d";
+		}
+	}
+
+	&-income {
+		&:before {
+			content: "\e98e";
+		}
+	}
+
+	&-industry {
+		&:before {
+			content: "\e98f";
+		}
+	}
+
+	&-info {
+		&:before {
+			content: "\e990";
+		}
+	}
+
+	&-info-on {
+		&:before {
+			content: "\ea8a";
+		}
+	}
+
+	&-infrastructure {
+		&:before {
+			content: "\e991";
+		}
+	}
+
+	&-instagram {
+		&:before {
+			content: "\e992";
+		}
+	}
+
+	&-installments-total {
+		&:before {
+			content: "\e993";
+		}
+	}
+
+	&-insurance {
+		&:before {
+			content: "\e994";
+		}
+	}
+
+	&-insured {
+		&:before {
+			content: "\e995";
+		}
+	}
+
+	&-international {
+		&:before {
+			content: "\e996";
+		}
+	}
+
+	&-invest {
+		&:before {
+			content: "\e997";
+		}
+	}
+
+	&-invoice {
+		&:before {
+			content: "\e998";
+		}
+	}
+
+	&-invoice-anticipate {
+		&:before {
+			content: "\e999";
+		}
+	}
+
+	&-invoice-anticipation {
+		&:before {
+			content: "\e99a";
+		}
+	}
+
+	&-it {
+		&:before {
+			content: "\e99b";
+		}
+	}
+
+	&-jewelry {
+		&:before {
+			content: "\e99c";
+		}
+	}
+
+	&-left {
+		&:before {
+			content: "\e99d";
+		}
+	}
+
+	&-arrow-left {
+		&:before {
+			content: "\ea93";
+		}
+	}
+
+	&-legal {
+		&:before {
+			content: "\e9c20";
+		}
+	}
+
+	&-like {
+		&:before {
+			content: "\e99e";
+		}
+	}
+
+	&-like-on {
+		&:before {
+			content: "\e99f";
+		}
+	}
+
+	&-limite-mais {
+		&:before {
+			content: "\e9a0";
+		}
+	}
+
+	&-line-chart {
+		&:before {
+			content: "\e9a1";
+		}
+	}
+
+	&-lock {
+		&:before {
+			content: "\e9a2";
+		}
+	}
+
+	&-locker-close {
+		&:before {
+			content: "\e9a3";
+		}
+	}
+
+	&-locker-open {
+		&:before {
+			content: "\e9a4";
+		}
+	}
+
+	&-logoff {
+		&:before {
+			content: "\e9a5";
+		}
+	}
+
+	&-lottery {
+		&:before {
+			content: "\e9a6";
+		}
+	}
+
+	&-low-reserve {
+		&:before {
+			content: "\e9a7";
+		}
+	}
+
+	&-management {
+		&:before {
+			content: "\e9a8";
+		}
+	}
+
+	&-magnet {
+		&:before {
+			content: "\ea7d";
+		}
+	}
+
+	&-medicine {
+		&:before {
+			content: "\e9a9";
+		}
+	}
+
+	&-menu-pin {
+		&:before {
+			content: "\ea86";
+		}
+	}
+
+	&-menu-unpin {
+		&:before {
+			content: "\ea87";
+		}
+	}
+
+	&-medium-reserve {
+		&:before {
+			content: "\e9aa";
+		}
+	}
+
+	&-metals {
+		&:before {
+			content: "\e9ab";
+		}
+	}
+
+	&-minimize-view {
+		&:before {
+			content: "\e9ac";
+		}
+	}
+
+	&-mining {
+		&:before {
+			content: "\e9ad";
+		}
+	}
+
+	&-moderate {
+		&:before {
+			content: "\e9ae";
+		}
+	}
+
+	&-move {
+		&:before {
+			content: "\ea7e";
+		}
+	}
+
+	&-money {
+		&:before {
+			content: "\e9af";
+		}
+	}
+
+	&-money-application {
+		&:before {
+			content: "\e9b0";
+		}
+	}
+
+	&-money-in {
+		&:before {
+			content: "\e9b1";
+		}
+	}
+
+	&-money-out {
+		&:before {
+			content: "\e9b2";
+		}
+	}
+
+	&-more-options {
+		&:before {
+			content: "\e9b3";
+		}
+	}
+
+	&-music {
+		&:before {
+			content: "\e9b4";
+		}
+	}
+
+	&-new-claim {
+		&:before {
+			content: "\e9b5";
+		}
+	}
+
+	&-non-motorized {
+		&:before {
+			content: "\e9b6";
+		}
+	}
+
+	&-notification-add {
+		&:before {
+			content: "\ea7f";
+		}
+	}
+
+	&-notification {
+		&:before {
+			content: "\e9b7";
+		}
+	}
+
+	&-notification-on {
+		&:before {
+			content: "\e9b8";
+		}
+	}
+
+	&-offer-book {
+		&:before {
+			content: "\e9b9";
+		}
+	}
+
+	&-offshore-analysis {
+		&:before {
+			content: "\e9e20";
+		}
+	}
+
+	&-offshore {
+		&:before {
+			content: "\e9e30";
+		}
+	}
+
+	&-online {
+		&:before {
+			content: "\e9ba";
+		}
+	}
+
+	&-onshore-analysis {
+		&:before {
+			content: "\e9e50";
+		}
+	}
+
+	&-onshore {
+		&:before {
+			content: "\e9e60";
+		}
+	}
+
+	&-open-banking {
+		&:before {
+			content: "\e9bb";
+		}
+	}
+
+	&-opening {
+		&:before {
+			content: "\e9bc";
+		}
+	}
+
+	&-operationalization {
+		&:before {
+			content: "\e9bd";
+		}
+	}
+
+	&-order-received {
+		&:before {
+			content: "\e9be";
+		}
+	}
+
+	&-others {
+		&:before {
+			content: "\e9bf";
+		}
+	}
+
+	&-outlook {
+		&:before {
+			content: "\e9c0";
+		}
+	}
+
+	&-page-first {
+		&:before {
+			content: "\e9c1";
+		}
+	}
+
+	&-page-last {
+		&:before {
+			content: "\e9c2";
+		}
+	}
+
+	&-paid-back {
+		&:before {
+			content: "\e9c3";
+		}
+	}
+
+	&-pause {
+		&:before {
+			content: "\e9c4";
+		}
+	}
+
+	&-payment-bills {
+		&:before {
+			content: "\e9c5";
+		}
+	}
+
+	&-payment-scheduled {
+		&:before {
+			content: "\e9c6";
+		}
+	}
+
+	&-payment-tribute {
+		&:before {
+			content: "\e9c7";
+		}
+	}
+
+	&-payroll {
+		&:before {
+			content: "\e9c8";
+		}
+	}
+
+	&-pets {
+		&:before {
+			content: "\e9c9";
+		}
+	}
+
+	&-pin {
+		&:before {
+			content: "\e9ca";
+		}
+	}
+
+	&-pix {
+		&:before {
+			content: "\e9cb";
+		}
+	}
+
+	&-pix-key {
+		&:before {
+			content: "\e9cc";
+		}
+	}
+
+	&-pizza-chart {
+		&:before {
+			content: "\e9cd";
+		}
+	}
+
+	&-play {
+		&:before {
+			content: "\e9ce";
+		}
+	}
+
+	&-play-next {
+		&:before {
+			content: "\e9cf";
+		}
+	}
+
+	&-play-previous {
+		&:before {
+			content: "\e9d0";
+		}
+	}
+
+	&-points {
+		&:before {
+			content: "\e9d1";
+		}
+	}
+
+	&-policy {
+		&:before {
+			content: "\e9d2";
+		}
+	}
+
+	&-popcorn {
+		&:before {
+			content: "\ea040";
+		}
+	}
+
+	&-portability {
+		&:before {
+			content: "\e9d3";
+		}
+	}
+
+	&-printer {
+		&:before {
+			content: "\e9d4";
+		}
+	}
+
+	&-products {
+		&:before {
+			content: "\e9d6";
+		}
+	}
+
+	&-profitability-negative {
+		&:before {
+			content: "\e9d7";
+		}
+	}
+
+	&-profitability-positive {
+		&:before {
+			content: "\e9d8";
+		}
+	}
+
+	&-property {
+		&:before {
+			content: "\e9da";
+		}
+	}
+
+	&-property-secured {
+		&:before {
+			content: "\e9db";
+		}
+	}
+
+	&-proposal {
+		&:before {
+			content: "\e9dc";
+		}
+	}
+
+	&-public-utility {
+		&:before {
+			content: "\e9dd";
+		}
+	}
+
+	&-purchase-and-sales {
+		&:before {
+			content: "\e9de";
+		}
+	}
+
+	&-qr-code {
+		&:before {
+			content: "\e9df";
+		}
+	}
+
+	&-question {
+		&:before {
+			content: "\e9e0";
+		}
+	}
+
+	&-rate-off {
+		&:before {
+			content: "\e9e1";
+		}
+	}
+
+	&-rate-on {
+		&:before {
+			content: "\e9e2";
+		}
+	}
+
+	&-read-bank-slip {
+		&:before {
+			content: "\e9e3";
+		}
+	}
+
+	&-receipt {
+		&:before {
+			content: "\e9e4";
+		}
+	}
+
+	&-receivables {
+		&:before {
+			content: "\e9e5";
+		}
+	}
+
+	&-recent {
+		&:before {
+			content: "\e9e6";
+		}
+	}
+
+	&-reclaim-money {
+		&:before {
+			content: "\e9e7";
+		}
+	}
+
+	&-refresh {
+		&:before {
+			content: "\e9e8";
+		}
+	}
+
+	&-remote-file {
+		&:before {
+			content: "\e9e9";
+		}
+	}
+
+	&-remunerated-balance {
+		&:before {
+			content: "\e9ea";
+		}
+	}
+
+	&-rental {
+		&:before {
+			content: "\e9eb";
+		}
+	}
+
+	&-research {
+		&:before {
+			content: "\e9ec";
+		}
+	}
+
+	&-restaurant {
+		&:before {
+			content: "\e9ed";
+		}
+	}
+
+	&-retail {
+		&:before {
+			content: "\e9ee";
+		}
+	}
+
+	&-rewards {
+		&:before {
+			content: "\e9ef";
+		}
+	}
+
+	&-right {
+		&:before {
+			content: "\e9f0";
+		}
+	}
+
+	&-rotate-left {
+		&:before {
+			content: "\ea80";
+		}
+	}
+
+	&-rotate-right {
+		&:before {
+			content: "\ea81";
+		}
+	}
+
+	&-ruller {
+		&:before {
+			content: "\ea82";
+		}
+	}
+
+	&-arrow-right {
+		&:before {
+			content: "\ea94";
+		}
+	}
+
+	&-rural {
+		&:before {
+			content: "\e9f1";
+		}
+	}
+
+	&-salary {
+		&:before {
+			content: "\e9f2";
+		}
+	}
+
+	&-sanitation {
+		&:before {
+			content: "\e9f3";
+		}
+	}
+
+	&-schedule {
+		&:before {
+			content: "\e9f4";
+		}
+	}
+
+	&-scheduled {
+		&:before {
+			content: "\e9f5";
+		}
+	}
+
+	&-schedule-recurring {
+		&:before {
+			content: "\e9f6";
+		}
+	}
+
+	&-school {
+		&:before {
+			content: "\e9f7";
+		}
+	}
+
+	&-services {
+		&:before {
+			content: "\e9f8";
+		}
+	}
+
+	&-share {
+		&:before {
+			content: "\e9f9";
+		}
+	}
+
+	&-share-android {
+		&:before {
+			content: "\e9fa";
+		}
+	}
+
+	&-shipping {
+		&:before {
+			content: "\e9fb";
+		}
+	}
+
+	&-shipping-remittance {
+		&:before {
+			content: "\e9fc";
+		}
+	}
+
+	&-simulator {
+		&:before {
+			content: "\ea340";
+		}
+	}
+
+	&-smile {
+		&:before {
+			content: "\e9fd";
+		}
+	}
+
+	&-solar-credit {
+		&:before {
+			content: "\e9fe";
+		}
+	}
+
+	&-sound-off {
+		&:before {
+			content: "\e9ff";
+		}
+	}
+
+	&-sound-on {
+		&:before {
+			content: "\ea00";
+		}
+	}
+
+	&-sports {
+		&:before {
+			content: "\ea01";
+		}
+	}
+
+	&-stack-burger-menu {
+		&:before {
+			content: "\ea02";
+		}
+	}
+
+	&-stack-burger-menu-plus {
+		&:before {
+			content: "\ea03";
+		}
+	}
+
+	&-stack-details {
+		&:before {
+			content: "\ea04";
+		}
+	}
+
+	&-stack-list {
+		&:before {
+			content: "\ea05";
+		}
+	}
+
+	&-status-disapproved {
+		&:before {
+			content: "\ea06";
+		}
+	}
+
+	&-status-error {
+		&:before {
+			content: "\ea08";
+		}
+	}
+
+	&-status-pause {
+		&:before {
+			content: "\ea8d";
+		}
+	}
+
+	&-status-refresh {
+		&:before {
+			content: "\ea8e";
+		}
+	}
+
+	&-status-success {
+		&:before {
+			content: "\ea09";
+		}
+	}
+
+	&-status-warning {
+		&:before {
+			content: "\ea0a";
+		}
+	}
+
+	&-stripe {
+		&:before {
+			content: "\ea0b";
+		}
+	}
+
+	&-subscription {
+		&:before {
+			content: "\ea0c";
+		}
+	}
+
+	&-supermarket {
+		&:before {
+			content: "\ea0d";
+		}
+	}
+
+	&-supplies {
+		&:before {
+			content: "\ea0e";
+		}
+	}
+
+	&-support {
+		&:before {
+			content: "\ea0f";
+		}
+	}
+
+	&-surety {
+		&:before {
+			content: "\ea10";
+		}
+	}
+
+	&-swap-circle {
+		&:before {
+			content: "\ea11";
+		}
+	}
+
+	&-tag {
+		&:before {
+			content: "\ea12";
+		}
+	}
+
+	&-tariff {
+		&:before {
+			content: "\ea13";
+		}
+	}
+
+	&-ted-chargeback {
+		&:before {
+			content: "\ea14";
+		}
+	}
+
+	&-ted-in {
+		&:before {
+			content: "\ea15";
+		}
+	}
+
+	&-ted-out {
+		&:before {
+			content: "\ea16";
+		}
+	}
+
+	&-ted-scheduled {
+		&:before {
+			content: "\ea17";
+		}
+	}
+
+	&-tef-chargeback {
+		&:before {
+			content: "\ea18";
+		}
+	}
+
+	&-tef-in {
+		&:before {
+			content: "\ea19";
+		}
+	}
+
+	&-tef-out {
+		&:before {
+			content: "\ea1a";
+		}
+	}
+
+	&-tef-scheduled {
+		&:before {
+			content: "\ea1b";
+		}
+	}
+
+	&-telecomunication {
+		&:before {
+			content: "\ea1c";
+		}
+	}
+
+	&-telephony {
+		&:before {
+			content: "\ea1d";
+		}
+	}
+
+	&-tennis-arena {
+		&:before {
+			content: "\ea580";
+		}
+	}
+
+	&-theater {
+		&:before {
+			content: "\ea1e";
+		}
+	}
+
+	&-timer {
+		&:before {
+			content: "\ea1f";
+		}
+	}
+
+	&-tools-analysis {
+		&:before {
+			content: "\ea20";
+		}
+	}
+
+	&-tools-filter {
+		&:before {
+			content: "\ea21";
+		}
+	}
+
+	&-tools-search {
+		&:before {
+			content: "\ea22";
+		}
+	}
+
+	&-tools-set {
+		&:before {
+			content: "\ea6b";
+		}
+	}
+
+	&-tools-tools {
+		&:before {
+			content: "\ea6b";
+		}
+	}
+
+	&-tools-widgets {
+		&:before {
+			content: "\ea24";
+		}
+	}
+
+	&-touch-screen {
+		&:before {
+			content: "\ea25";
+		}
+	}
+
+	&-town-hall {
+		&:before {
+			content: "\ea26";
+		}
+	}
+
+	&-transaction-limit {
+		&:before {
+			content: "\ea27";
+		}
+	}
+
+	&-transfer {
+		&:before {
+			content: "\ea28";
+		}
+	}
+
+	&-transportation {
+		&:before {
+			content: "\ea29";
+		}
+	}
+
+	&-travel {
+		&:before {
+			content: "\ea2a";
+		}
+	}
+
+	&-turn-camera {
+		&:before {
+			content: "\ea2b";
+		}
+	}
+
+	&-tv-pay {
+		&:before {
+			content: "\ea2c";
+		}
+	}
+
+	&-unified-invoice {
+		&:before {
+			content: "\ea2d";
+		}
+	}
+
+	&-up {
+		&:before {
+			content: "\ea2e";
+		}
+	}
+
+	&-arrow-up {
+		&:before {
+			content: "\ea95";
+		}
+	}
+
+	&-upload {
+		&:before {
+			content: "\ea2f";
+		}
+	}
+
+	&-user-add {
+		&:before {
+			content: "\ea30";
+		}
+	}
+
+	&-user-clients {
+		&:before {
+			content: "\ea31";
+		}
+	}
+
+	&-user-login {
+		&:before {
+			content: "\ea32";
+		}
+	}
+
+	&-user-manage {
+		&:before {
+			content: "\ea33";
+		}
+	}
+
+	&-user-remove-access {
+		&:before {
+			content: "\ea34";
+		}
+	}
+
+	&-vacation {
+		&:before {
+			content: "\ea35";
+		}
+	}
+
+	&-view-pass {
+		&:before {
+			content: "\ea36";
+		}
+	}
+
+	&-visibility-on {
+		&:before {
+			content: "\ea37";
+		}
+	}
+
+	&-visibility-off {
+		&:before {
+			content: "\ea38";
+		}
+	}
+
+	&-voucher {
+		&:before {
+			content: "\ea39";
+		}
+	}
+
+	&-wallet-comparison {
+		&:before {
+			content: "\ea3a";
+		}
+	}
+
+	&-wallet-virtual {
+		&:before {
+			content: "\ea3b";
+		}
+	}
+
+	&-wellness {
+		&:before {
+			content: "\ea3c";
+		}
+	}
+
+	&-whatsapp {
+		&:before {
+			content: "\ea3d";
+		}
+	}
+
+	&-wholesale {
+		&:before {
+			content: "\ea3e";
+		}
+	}
+
+	&-widget-collapse {
+		&:before {
+			content: "\ea3f";
+		}
+	}
+
+	&-widget-expansion {
+		&:before {
+			content: "\ea40";
+		}
+	}
+
+	&-wifi {
+		&:before {
+			content: "\ea83";
+		}
+	}
+
+	&-youtube {
+		&:before {
+			content: "\ea41";
+		}
+	}
+
+	&-zoom-in {
+		&:before {
+			content: "\ea84";
+		}
+	}
+
+	&-zoom-out {
+		&:before {
+			content: "\ea85";
+		}
+	}
+}

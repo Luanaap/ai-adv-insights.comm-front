@@ -1,0 +1,173 @@
+@font-face {
+	font-family: "Moderat";
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: url("https://orquestracdn.btgpactual.com/fonts/Moderat-Light.eot");
+	src: url("https://orquestracdn.btgpactual.com/fonts/Moderat-Light.eot?#iefix")
+		format("embedded-opentype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Moderat-Light.woff2")
+		format("woff2"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Moderat-Light.woff")
+		format("woff"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Moderat-Light.ttf")
+		format("truetype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Moderat-Light.svg#Moderat-Light")
+		format("svg");
+  }
+  @font-face {
+	font-family: "Moderat";
+	font-style: normal;
+	font-weight: normal;
+	font-display: swap;
+	src: url("https://orquestracdn.btgpactual.com/fonts/Moderat-Regular.eot");
+	src: url("https://orquestracdn.btgpactual.com/fonts/Moderat-Regular.eot?#iefix")
+		format("embedded-opentype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Moderat-Regular.woff2")
+		format("woff2"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Moderat-Regular.woff")
+		format("woff"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Moderat-Regular.ttf")
+		format("truetype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Moderat-Regular.svg#Moderat-Regular")
+		format("svg");
+  }
+  @font-face {
+	font-family: "Moderat";
+	font-style: italic;
+	font-weight: normal;
+	font-display: swap;
+	src: url("https://orquestracdn.btgpactual.com/fonts/Moderat-Regular-Italic.eot");
+	src: url("https://orquestracdn.btgpactual.com/fonts/Moderat-Regular-Italic.eot?#iefix")
+		format("embedded-opentype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Moderat-Regular-Italic.woff2")
+		format("woff2"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Moderat-Regular-Italic.woff")
+		format("woff"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Moderat-Regular-Italic.ttf")
+		format("truetype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Moderat-Regular-Italic.svg#Moderat-Regular-Italic")
+		format("svg");
+  }
+  @font-face {
+	font-family: "Moderat";
+	font-style: normal;
+	font-weight: bold;
+	font-display: swap;
+	src: url("https://orquestracdn.btgpactual.com/fonts/Moderat-Bold.eot");
+	src: url("https://orquestracdn.btgpactual.com/fonts/Moderat-Bold.eot?#iefix")
+		format("embedded-opentype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Moderat-Bold.woff2")
+		format("woff2"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Moderat-Bold.woff")
+		format("woff"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Moderat-Bold.ttf")
+		format("truetype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Moderat-Bold.svg#Moderat-Bold")
+		format("svg");
+  }
+  
+  @font-face {
+	font-family: "icomoon-orquestra";
+	font-style: normal;
+	font-weight: normal;
+	font-display: block;
+	src: url("https://orquestracdn.btgpactual.com/fonts/icons-fonts/v16/icomoon-orquestra.eot"),
+	  url("https://orquestracdn.btgpactual.com/fonts/icons-fonts/v16/icomoon-orquestra.eot")
+		format("embedded-opentype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/icons-fonts/v16/icomoon-orquestra.ttf")
+		format("truetype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/icons-fonts/v16/icomoon-orquestra.woff")
+		format("woff"),
+	  url("https://orquestracdn.btgpactual.com/fonts/icons-fonts/v16/icomoon-orquestra.woff2")
+		format("woff2"),
+	  url("https://orquestracdn.btgpactual.com/fonts/icons-fonts/v16/icomoon-orquestra.svg#icomoon-orquestra")
+		format("svg");
+  }
+  
+  @font-face {
+	font-family: "BTGPactualSans";
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Light.eot");
+	src: url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Light.eot?#iefix")
+		format("embedded-opentype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Light.woff2")
+		format("woff2"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Light.woff")
+		format("woff"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Light.ttf")
+		format("truetype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Light.svg#BTGPactualSans-Light")
+		format("svg");
+  }
+  @font-face {
+	font-family: "BTGPactualSans";
+	font-style: normal;
+	font-weight: normal;
+	font-display: swap;
+	src: url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Regular.eot");
+	src: url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Regular.eot?#iefix")
+		format("embedded-opentype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Regular.woff2")
+		format("woff2"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Regular.woff")
+		format("woff"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Regular.ttf")
+		format("truetype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Regular.svg#BTGPactualSans-Regular")
+		format("svg");
+  }
+  @font-face {
+	font-family: "BTGPactualSans";
+	font-style: italic;
+	font-weight: normal;
+	font-display: swap;
+	src: url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Regular-Italic.eot");
+	src: url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Regular-Italic.eot?#iefix")
+		format("embedded-opentype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Regular-Italic.woff2")
+		format("woff2"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Regular-Italic.woff")
+		format("woff"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Regular-Italic.ttf")
+		format("truetype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Regular-Italic.svg#BTGPactualSans-Regular-Italic")
+		format("svg");
+  }
+  @font-face {
+	font-family: "BTGPactualSans";
+	font-style: normal;
+	font-weight: bold;
+	font-display: swap;
+	src: url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Bold.eot");
+	src: url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Bold.eot?#iefix")
+		format("embedded-opentype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Bold.woff2")
+		format("woff2"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Bold.woff")
+		format("woff"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Bold.ttf")
+		format("truetype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/Btg-fonts/BTGPactualSans-Bold.svg#BTGPactualSans-Bold")
+		format("svg");
+  }
+  
+  @font-face {
+	font-family: "icomoon-orquestra";
+	font-style: normal;
+	font-weight: normal;
+	font-display: block;
+	src: url("https://orquestracdn.btgpactual.com/fonts/icons-fonts/v16/icomoon-orquestra.eot"),
+	  url("https://orquestracdn.btgpactual.com/fonts/icons-fonts/v16/icomoon-orquestra.eot")
+		format("embedded-opentype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/icons-fonts/v16/icomoon-orquestra.ttf")
+		format("truetype"),
+	  url("https://orquestracdn.btgpactual.com/fonts/icons-fonts/v16/icomoon-orquestra.woff")
+		format("woff"),
+	  url("https://orquestracdn.btgpactual.com/fonts/icons-fonts/v16/icomoon-orquestra.woff2")
+		format("woff2"),
+	  url("https://orquestracdn.btgpactual.com/fonts/icons-fonts/v16/icomoon-orquestra.svg#icomoon-orquestra")
+		format("svg");
+  }
