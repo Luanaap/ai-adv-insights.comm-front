@@ -1,10 +1,18 @@
 "use client";
 import React from 'react';
-import { Box, Button, Flex, Text, Spacer, chakra } from '@chakra-ui/react';
+import { 
+  Box, 
+  Button, 
+  Flex, 
+  Text, 
+  Spacer, 
+  chakra, 
+  Badge,
+  Portal
+} from '@chakra-ui/react';
 import { createColumnHelper, flexRender, getCoreRowModel, getSortedRowModel, getFilteredRowModel, getPaginationRowModel, useReactTable, SortingState, PaginationState } from '@tanstack/react-table';
-import { RecordRow, RecordGridProps } from './types';
+import { RecordRow, RecordGridProps, AttributeTag } from './types';
 
-// Shims for missing Chakra table exports (using chakra factory)
 const CKTable: any = chakra('table');
 const Thead: any = chakra('thead');
 const Tbody: any = chakra('tbody');
@@ -12,11 +20,110 @@ const Tr: any = chakra('tr');
 const Th: any = chakra('th');
 const Td: any = chakra('td');
 const Select: any = chakra('select');
-const useColorModeValue = (l: any, _d: any) => l; // light-only fallback
+const useColorModeValue = (l: any, _d: any) => l;
 
 function Card(props: React.PropsWithChildren<{ px?: any; flexDirection?: string; w?: string }>) {
   const { px, children, flexDirection, w } = props;
   return <Box bg="white" borderRadius="8px" boxShadow="sm" display="flex" flexDirection={flexDirection} w={w} px={px} p={px ? undefined : 0}>{children}</Box>;
+}
+
+function AttributesModal({ isOpen, onClose, attributes, title }: {
+  isOpen: boolean;
+  onClose: () => void;
+  attributes: (string | AttributeTag)[];
+  title: string;
+}) {
+  if (!isOpen) return null;
+
+  const getAttributeProps = (attr: string | AttributeTag) => {
+    if (typeof attr === 'string') {
+      return { label: attr, type: 'default' };
+    }
+    return attr;
+  };
+
+  const getStatusInfo = (type?: string) => {
+    switch (type) {
+      case 'success':
+        return { label: 'Adequada', bg: '#DCFCE7', color: '#166534' };
+      case 'warning':
+        return { label: 'Não avaliada', bg: '#FEF3C7', color: '#D97706' };
+      case 'danger':
+        return { label: 'Inadequada', bg: '#FEE2E2', color: '#DC2626' };
+      default:
+        return { label: 'Adequada', bg: '#DCFCE7', color: '#166534' };
+    }
+  };
+
+  return (
+    <Portal>
+      <Box
+        position="fixed"
+        top="0"
+        left="0"
+        right="0"
+        bottom="0"
+        bg="rgba(0, 0, 0, 0.5)"
+        zIndex="9999"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        onClick={onClose}
+      >
+        <Box
+          bg="white"
+          borderRadius="8px"
+          p="24px"
+          maxW="400px"
+          w="90%"
+          maxH="500px"
+          overflowY="auto"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <Flex justify="space-between" align="center" mb="20px">
+            <Text fontSize="16px" fontWeight="600" color="#1F2937">
+              {title} - Todos os Atributos
+            </Text>
+            <Button size="sm" variant="ghost" onClick={onClose} color="#6B7280">
+              ✕
+            </Button>
+          </Flex>
+          
+          <Box>
+            {attributes.map((attr, index) => {
+              const { label, type } = getAttributeProps(attr);
+              const statusInfo = getStatusInfo(type);
+              
+              return (
+                <Flex 
+                  key={index} 
+                  justify="space-between" 
+                  align="center" 
+                  py="12px"
+                  borderBottom={index < attributes.length - 1 ? "1px solid #E5E7EB" : "none"}
+                >
+                  <Text fontSize="14px" color="#374151" fontWeight="400">
+                    {label}
+                  </Text>
+                  <Badge
+                    px="8px"
+                    py="4px"
+                    borderRadius="12px"
+                    fontSize="12px"
+                    bg={statusInfo.bg}
+                    color={statusInfo.color}
+                    fontWeight="500"
+                  >
+                    {statusInfo.label}
+                  </Badge>
+                </Flex>
+              );
+            })}
+          </Box>
+        </Box>
+      </Box>
+    </Portal>
+  );
 }
 
 function parseAudioDuration(seconds: number) {
@@ -39,6 +146,106 @@ export function RecordGrid({ data, onDetail }: RecordGridProps) {
   const borderColor = useColorModeValue('#00000029', 'grey');
   const color = useColorModeValue('black', 'white');
   const [pagination, setPagination] = React.useState<PaginationState>({ pageIndex: 0, pageSize: 10 });
+  
+  // Estado do modal de atributos
+  const [modalState, setModalState] = React.useState<{
+    isOpen: boolean;
+    attributes: (string | AttributeTag)[];
+    title: string;
+  }>({
+    isOpen: false,
+    attributes: [],
+    title: ''
+  });
+
+  const openAttributesModal = (attributes: (string | AttributeTag)[], rowTitle: string) => {
+    setModalState({
+      isOpen: true,
+      attributes,
+      title: rowTitle
+    });
+  };
+
+  const closeAttributesModal = () => {
+    setModalState({
+      isOpen: false,
+      attributes: [],
+      title: ''
+    });
+  };
+
+  const renderAttributesCell = (attributes: (string | AttributeTag)[] | undefined, row: RecordRow) => {
+    if (!attributes || attributes.length === 0) {
+      return <Text fontSize="12px" color="#666">-</Text>;
+    }
+
+    const getAttributeProps = (attr: string | AttributeTag) => {
+      if (typeof attr === 'string') {
+        return { label: attr, type: 'default' };
+      }
+      return attr;
+    };
+
+    const getAttributeColor = (type?: string) => {
+      switch (type) {
+        case 'success':
+        case 'Cordialidade':
+          return { bg: '#DCFCE7', color: '#166534' };
+        case 'warning':
+        case 'Postura':
+          return { bg: '#FEF3C7', color: '#D97706' };
+        case 'danger':
+          return { bg: '#FEE2E2', color: '#DC2626' };
+        default:
+          return { bg: '#E5E7EB', color: '#374151' };
+      }
+    };
+
+    const visibleAttributes = attributes.slice(0, 2);
+    const remainingCount = attributes.length - 2;
+
+    return (
+      <Flex align="center" gap="4px" wrap="wrap">
+        {visibleAttributes.map((attr, index) => {
+          const { label, type } = getAttributeProps(attr);
+          const colors = getAttributeColor(type);
+          return (
+            <Badge
+              key={index}
+              px="6px"
+              py="2px"
+              borderRadius="12px"
+              fontSize="10px"
+              bg={colors.bg}
+              color={colors.color}
+              maxW="80px"
+              overflow="hidden"
+              textOverflow="ellipsis"
+              whiteSpace="nowrap"
+            >
+              {label}
+            </Badge>
+          );
+        })}
+        
+        {remainingCount > 0 && (
+          <Button
+            size="xs"
+            variant="ghost"
+            fontSize="10px"
+            color="#666"
+            minW="auto"
+            h="20px"
+            px="6px"
+            onClick={() => openAttributesModal(attributes, `${row.agent_name} - ${row.case_number}`)}
+            _hover={{ bg: '#F3F4F6' }}
+          >
+            +{remainingCount}
+          </Button>
+        )}
+      </Flex>
+    );
+  };
 
   const columnHelper = createColumnHelper<RecordRow>();
   const headerText = (text: string) => <Text color={color} fontSize={{ sm:'12px', lg:'14px' }} fontWeight='400'>{text}</Text>;
@@ -53,11 +260,24 @@ export function RecordGrid({ data, onDetail }: RecordGridProps) {
     columnHelper.accessor('external_id',{ id:'external_id', header:()=>headerText('Id'), cell:i=>cellText(i.getValue()), filterFn:'arrIncludesSome'}),
     columnHelper.accessor('case_number',{ id:'case_number', header:()=>headerText('Caso'), cell:i=>cellText(i.getValue()), filterFn:'arrIncludesSome'}),
     columnHelper.accessor('client_phone_number',{ id:'client_phone_number', header:()=>headerText('Telefone'), cell:i=>cellText(i.getValue()), filterFn:'arrIncludesSome'}),
+    columnHelper.accessor('attributes', { 
+      id:'attributes', 
+      header:()=>headerText('Atributos'), 
+      cell: info => renderAttributesCell(info.getValue(), info.row.original),
+      filterFn:'arrIncludesSome'
+    }),
     columnHelper.accessor('date_type',{ id:'date_type', header:()=>headerText('Tipo de Data'), cell:i=>cellText(i.getValue()==='contestation'?'Contestação':'Contato'), filterFn:'arrIncludesSome'}),
     columnHelper.accessor('status',{ id:'status', header:()=>headerText('Status'), cell:i=>cellText(i.getValue()), filterFn:'arrIncludesSome'}),
     columnHelper.accessor('note',{ id:'note', header:()=>headerText('Nota'), cell:i=>cellText(i.getValue()), filterFn:'inNumberRange'}),
     columnHelper.accessor('audio_duration',{ id:'audio_duration', header:()=>headerText('Duração'), cell:i=>cellText(parseAudioDuration(i.getValue())), filterFn:'inNumberRange'}),
-    columnHelper.display({ id:'actions', header:()=>'', cell:info=> <Button color={textColor} variant='outline' size='sm' onClick={()=>onDetail(info.row.original)}>Detalhes</Button> })
+    columnHelper.display({ 
+      id:'actions', 
+      header:()=>'', 
+      cell:info=> <Button color={textColor} variant='outline' size='sm' onClick={()=>onDetail(info.row.original)}>Detalhes</Button>,
+      size: 70,
+      minSize: 70,
+      maxSize: 70
+    })
   ];
 
   const table = useReactTable({
@@ -79,9 +299,10 @@ export function RecordGrid({ data, onDetail }: RecordGridProps) {
   return (
     <Box flexDirection='column' w='100%'>
       <Card flexDirection='column' w='100%' px='0px'>
-        <Box bg={bgColor} borderColor={borderColor} borderRadius='4px' borderWidth='1px' position='relative' maxH='500px' overflowY='auto'>
+        <Box bg={bgColor} borderColor={borderColor} borderRadius='4px' borderWidth='1px' position='relative' maxH='500px' overflowY='auto' display='inline-block'>
           <Box 
             overflowX='auto'
+            display='inline-block'
             css={{
               '&::-webkit-scrollbar': {
                 height: '8px',
@@ -106,16 +327,17 @@ export function RecordGrid({ data, onDetail }: RecordGridProps) {
             <CKTable 
               variant='simple'
               size='sm'
-              minWidth='1200px'
+              style={{ display: 'inline-table', margin: 0 }}
               css={{
-                '& th:last-child, & td:last-child': {
-                  position: 'sticky',
-                  right: '0',
-                  backgroundColor: bgColor,
-                  zIndex: '1',
-                  boxShadow: 'inset 8px 0px 8px -8px rgba(0, 0, 0, 0.16)',
-                  borderLeft: `1px solid ${borderColor}`,
-                },
+                borderCollapse: 'collapse',
+                 '& th:last-child, & td:last-child': {
+                   position: 'sticky',
+                   right: '0',
+                   backgroundColor: bgColor,
+                   zIndex: '1',
+                   boxShadow: 'inset 8px 0px 8px -8px rgba(0, 0, 0, 0.16)',
+                   borderLeft: `1px solid ${borderColor}`,
+                 },
                 '& th:last-child': {
                   zIndex: '2',
                 }
@@ -127,7 +349,7 @@ export function RecordGrid({ data, onDetail }: RecordGridProps) {
                     {hg.headers.map(header => {
                       const isActions = header.column.id === 'actions';
                       return (
-                        <Th key={header.id} borderColor={borderColor} cursor={!isActions?'pointer':'default'} onClick={!isActions? header.column.getToggleSortingHandler(): undefined} sx={{ textTransform:'none' }} minW={isActions?'120px':'150px'} py='4px' px='8px' textAlign={isActions?'center':'left'}>
+                        <Th key={header.id} borderColor={borderColor} cursor={!isActions?'pointer':'default'} onClick={!isActions? header.column.getToggleSortingHandler(): undefined} sx={{ textTransform:'none' }} minW={isActions?'70px':'150px'} py='4px' px={isActions?'2px':'8px'} textAlign={isActions?'center':'left'}>
                           <Flex justifyContent={isActions?'center':'space-between'} align='center' minH='32px'>
                             {isActions ? (
                               <Text fontSize='14px' fontWeight='400' color={color}>Detalhes</Text>
@@ -150,7 +372,7 @@ export function RecordGrid({ data, onDetail }: RecordGridProps) {
                     {row.getVisibleCells().map(cell => {
                       const isActions = cell.column.id === 'actions';
                       return (
-                        <Td key={cell.id} borderColor={borderColor} minW={isActions?'120px':'150px'} py='4px' px='8px' textAlign={isActions?'center':'left'}>
+                        <Td key={cell.id} borderColor={borderColor} minW={isActions?'70px':'150px'} py='4px' px={isActions?'2px':'8px'} textAlign={isActions?'center':'left'}>
                           {flexRender(cell.column.columnDef.cell, cell.getContext())}
                         </Td>
                       );
@@ -163,7 +385,6 @@ export function RecordGrid({ data, onDetail }: RecordGridProps) {
         </Box>
       </Card>
       
-      {/* Paginação fora da tabela */}
       <Flex my='8px' px='0px'>
         <Flex align='center'>
           <Select 
@@ -185,7 +406,6 @@ export function RecordGrid({ data, onDetail }: RecordGridProps) {
           <Text mr='12px'>{firstIndex}-{lastIndex} de {table.getRowCount().toLocaleString()}</Text>
           <Button size='sm' variant='ghost' onClick={()=>table.previousPage()} disabled={!table.getCanPreviousPage()}>{'<'}</Button>
           
-          {/* Números das páginas */}
           {Array.from({length: Math.min(table.getPageCount(), 10)}, (_, i) => {
             const pageNum = i + 1;
             const isActive = pagination.pageIndex === i;
@@ -211,9 +431,15 @@ export function RecordGrid({ data, onDetail }: RecordGridProps) {
           <Button size='sm' variant='ghost' onClick={()=>table.nextPage()} disabled={!table.getCanNextPage()}>{'>'}</Button>
         </Flex>
       </Flex>
+      
+      <AttributesModal
+        isOpen={modalState.isOpen}
+        onClose={closeAttributesModal}
+        attributes={modalState.attributes}
+        title={modalState.title}
+      />
     </Box>
   );
 }
 
 export default RecordGrid;
- 

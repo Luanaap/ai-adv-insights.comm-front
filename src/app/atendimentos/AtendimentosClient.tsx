@@ -6,7 +6,7 @@ import { RecordRow } from "@/components/data-grid/types";
 export default function AtendimentosClient({ data }: { data: RecordRow[] }) {
   const [loading, setLoading] = React.useState(true);
   React.useEffect(() => {
-    const t = setTimeout(() => setLoading(false), 1200); // simula fetch
+    const t = setTimeout(() => setLoading(false), 1200);
     return () => clearTimeout(t);
   }, []);
 

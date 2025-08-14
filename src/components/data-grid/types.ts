@@ -1,7 +1,7 @@
 export interface AttributeTag {
   label: string;
   value?: string | number;
-  type?: string; // for color mapping
+  type?: string;
 }
 
 export interface RecordRow {
@@ -15,11 +15,10 @@ export interface RecordRow {
   client_phone_number: string;
   bpo?: string;
   attributes?: (string | AttributeTag)[];
-  date_type: string; // 'contestation' | 'contact'
+  date_type: string;
   status: string;
   note: number;
-  audio_duration: number; // seconds
-  // allow extra fields
+  audio_duration: number;
   [key: string]: any;
 }
 
