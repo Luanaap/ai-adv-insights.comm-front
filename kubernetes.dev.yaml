@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: plataformacomm-front-dev
+  name: plataforma-comm-dev
 ---
 apiVersion: v1
 kind: ConfigMap
