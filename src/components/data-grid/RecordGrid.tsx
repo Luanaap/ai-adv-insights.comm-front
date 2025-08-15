@@ -16,7 +16,6 @@ import {
 } from '@chakra-ui/react';
 import { createColumnHelper, flexRender, getCoreRowModel, getSortedRowModel, getFilteredRowModel, getPaginationRowModel, useReactTable, SortingState, PaginationState } from '@tanstack/react-table';
 import { RecordRow, RecordGridProps, AttributeTag } from './types';
-import { CustomIcon } from '@/infra/icon';
 import { FiltersSection, FiltersState } from './FiltersSection';
 import { AttributesModal } from './AttributesModal';
 
@@ -122,8 +121,32 @@ export function RecordGrid({ data, onDetail }: RecordGridProps) {
   };
 
   const columnHelper = createColumnHelper<RecordRow>();
-  const headerText = (text: string) => <Text color={color} fontSize={{ sm:'12px', lg:'14px' }} fontWeight='400'>{text}</Text>;
-  const cellText = (text: any) => <Text color={color} fontSize={{ sm:'12px', lg:'14px' }} fontWeight='400'>{text}</Text>;
+  const headerText = (text: string) => (
+    <Text
+      color={color}
+      fontSize={{ sm: '12px', lg: '14px' }}
+      fontWeight='400'
+      whiteSpace='nowrap'
+      overflow='hidden'
+      textOverflow='ellipsis'
+      maxW='100%'
+    >
+      {text}
+    </Text>
+  );
+  const cellText = (text: any) => (
+    <Text
+      color={color}
+      fontSize={{ sm: '12px', lg: '14px' }}
+      fontWeight='400'
+      whiteSpace='nowrap'
+      overflow='hidden'
+      textOverflow='ellipsis'
+      maxW='100%'
+    >
+      {text}
+    </Text>
+  );
 
   const columns = [
     columnHelper.accessor('interaction_date',{ id:'interaction_date', header:()=>headerText('Data do Atendimento'), cell:i=>cellText(i.getValue()), filterFn:'arrIncludesSome'}),
@@ -158,24 +181,42 @@ export function RecordGrid({ data, onDetail }: RecordGridProps) {
   const possibleLast = (pagination.pageIndex + 1) * pagination.pageSize;
   const lastIndex = possibleLast > table.getRowCount() ? table.getRowCount() : possibleLast;
   
-  const totalColumns = columns.length;
-  const regularColumnWidth = 150;
-  const actionsColumnWidth = 70;
-  const totalTableWidth = (totalColumns - 1) * regularColumnWidth + actionsColumnWidth;
+  const COL_WIDTHS: Record<string, number> = {
+    interaction_date: 130,
+    leader_name: 120,
+    agent_name: 140,
+    island_name: 110,
+    channel_name: 110,
+    external_id: 90,
+    case_number: 110,
+    client_phone_number: 150,
+    attributes: 170,
+    date_type: 120,
+    status: 110,
+    note: 80,
+    audio_duration: 110,
+    actions: 100
+  };
+  const getColWidth = (id: string) => (COL_WIDTHS[id] ?? 110);
+  const ACTIONS_COL_WIDTH = COL_WIDTHS.actions;
 
   return (
     <Box flexDirection='column' w='100%' pl="0">
-      <FiltersSection
+  <Box mt={2} mb={2}>
+  <FiltersSection
         filters={filters}
         onChange={setFilters}
         onClear={() => setFilters({ bpo:'', dateType:'', island:'', channel:'', date:'', search:'' })}
-      />
+  />
+  </Box>
 
-      <Table.ScrollArea borderWidth="1px" rounded="md" maxH="500px" w="100%" overflowX="auto">
-        <Table.Root size="sm" style={{ minWidth: `${totalTableWidth}px`, width: 'auto' }} css={{
+      <Table.ScrollArea borderWidth="0" rounded="md" maxH="500px" w="100%" overflowX="auto" bg="transparent">
+        <Box as="div" bg="white" borderWidth="1px" rounded="md" minW="100%" w="max-content" position="relative">
+        <Table.Root size="sm" style={{ width: 'max-content', minWidth: '100%', tableLayout: 'fixed' }} css={{
           "& [data-sticky]": { position: "sticky", zIndex: 10, bg: "white" },
           "& [data-sticky=end]": { right: "0", boxShadow: "inset 8px 0px 8px -8px rgba(0, 0, 0, 0.16)" },
           "& [data-sticky=start]": { left: "0", boxShadow: "inset -8px 0px 8px -8px rgba(0, 0, 0, 0.16)" },
+          "& th, & td": { paddingInline: '12px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }
         }}>
           <Table.Header>
             {table.getHeaderGroups().map(hg => (
@@ -183,7 +224,16 @@ export function RecordGrid({ data, onDetail }: RecordGridProps) {
                 {hg.headers.map(header => {
                   const isActions = header.column.id === 'actions';
                   return (
-                    <Table.ColumnHeader key={header.id} data-sticky={isActions ? "end" : undefined} minW={isActions ? "70px" : "150px"} cursor={!isActions ? 'pointer' : 'default'} onClick={!isActions ? header.column.getToggleSortingHandler() : undefined} style={isActions ? { position: 'sticky', right: 0, zIndex: 10, backgroundColor: 'white' } : {}}>
+                    <Table.ColumnHeader
+                      key={header.id}
+                      data-sticky={isActions ? "end" : undefined}
+                      minW={`${getColWidth(header.column.id)}px`}
+                      w={`${getColWidth(header.column.id)}px`}
+                      maxW={`${getColWidth(header.column.id)}px`}
+                      cursor={!isActions ? 'pointer' : 'default'}
+                      onClick={!isActions ? header.column.getToggleSortingHandler() : undefined}
+                      style={isActions ? { position: 'sticky', right: 0, zIndex: 10, backgroundColor: 'white' } : {}}
+                    >
                       {isActions ? (
                         <Text fontSize='14px' fontWeight='400' color={color}>Detalhes</Text>
                       ) : (
@@ -205,7 +255,14 @@ export function RecordGrid({ data, onDetail }: RecordGridProps) {
                 {row.getVisibleCells().map(cell => {
                   const isActions = cell.column.id === 'actions';
                   return (
-                    <Table.Cell key={cell.id} data-sticky={isActions ? "end" : undefined} style={isActions ? { position: 'sticky', right: 0, zIndex: 10, backgroundColor: 'white' } : {}}>
+                    <Table.Cell
+                      key={cell.id}
+                      data-sticky={isActions ? "end" : undefined}
+                      minW={`${getColWidth(cell.column.id)}px`}
+                      w={`${getColWidth(cell.column.id)}px`}
+                      maxW={`${getColWidth(cell.column.id)}px`}
+                      style={isActions ? { position: 'sticky', right: 0, zIndex: 10, backgroundColor: 'white' } : {}}
+                    >
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </Table.Cell>
                   );
@@ -214,6 +271,7 @@ export function RecordGrid({ data, onDetail }: RecordGridProps) {
             ))}
           </Table.Body>
         </Table.Root>
+        </Box>
       </Table.ScrollArea>
       
       <Flex my='8px' px='0px'>
