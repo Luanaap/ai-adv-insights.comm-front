@@ -38,7 +38,7 @@ spec:
         fsGroup: 1001
       containers:
         - name: plataformacomm-front
-          image: <SEU_REGISTRY>/plataformacomm-front:dev
+          image: 905418453147.dkr.ecr.sa-east-1.amazonaws.com/ai-adv-insights-plataformacomm-front:dev
           imagePullPolicy: Always
           ports:
             - name: http
