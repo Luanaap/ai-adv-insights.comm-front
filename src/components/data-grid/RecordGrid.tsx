@@ -162,7 +162,24 @@ export function RecordGrid({ data, onDetail }: RecordGridProps) {
     columnHelper.accessor('status',{ id:'status', header:()=>headerText('Status'), cell:i=>cellText(i.getValue()), filterFn:'arrIncludesSome'}),
     columnHelper.accessor('note',{ id:'note', header:()=>headerText('Nota'), cell:i=>cellText(i.getValue()), filterFn:'inNumberRange'}),
     columnHelper.accessor('audio_duration',{ id:'audio_duration', header:()=>headerText('Duração'), cell:i=>cellText(parseAudioDuration(i.getValue())), filterFn:'inNumberRange'}),
-    columnHelper.display({ id:'actions', header:()=>'', cell:info=> <Button color={textColor} variant='outline' size='sm' onClick={()=>onDetail(info.row.original)}>Detalhes</Button>, size: 70, minSize: 70, maxSize: 70, enableSorting: false })
+    columnHelper.display({
+      id:'actions',
+      header:()=>'',
+      cell:info => {
+        const row = info.row.original as RecordRow;
+        const params = new URLSearchParams({ agent: row.agent_name, id: row.external_id, leader: row.leader_name });
+        const href = `/atendimentos/detalhes?${params.toString()}`;
+        return (
+          <Button color={textColor} variant='outline' size='sm' data-href={href} onClick={() => onDetail(row)}>
+            Detalhes
+          </Button>
+        )
+      },
+      size: 70,
+      minSize: 70,
+      maxSize: 70,
+      enableSorting: false
+    })
   ];
 
   const table = useReactTable({
@@ -295,7 +312,7 @@ export function RecordGrid({ data, onDetail }: RecordGridProps) {
         </Flex>
       </Flex>
       
-      <AttributesModal isOpen={modalState.isOpen} onClose={closeAttributesModal} attributes={modalState.attributes} title={modalState.title} />
+  <AttributesModal isOpen={modalState.isOpen} onCloseAction={closeAttributesModal} attributes={modalState.attributes} title={modalState.title} />
     </Box>
   );
 }

@@ -1,0 +1,78 @@
+.pageEvalCard {
+  background: #D2E5FF;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  width: clamp(260px, 32vw, 420px);
+  box-shadow: 0 1px 2px rgba(16,24,40,0.04);
+  flex: 0 0 auto;
+}
+
+.trophyBox {
+  width: clamp(56px, 7vw, 72px);
+  height: clamp(56px, 7vw, 72px);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #CFE8FF;
+  flex: 0 0 auto;
+}
+
+.trophyBox img {
+  width: clamp(28px, 4vw, 36px);
+  height: clamp(28px, 4vw, 36px);
+}
+
+.evalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.stars {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.stars svg {
+  width: clamp(14px, 1.6vw, 18px);
+  height: auto;
+}
+
+.score {
+  font-size: clamp(18px, 2.6vw, 24px);
+  color: #111111;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.desc {
+  font-size: 14px;
+  color: #111111;
+}
+
+/* Mobile: empilhar e garantir a ordem: estrelas -> nota -> descrição */
+@media (max-width: 640px) {
+  .pageEvalCard {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding: 16px;
+  }
+
+  .evalContent {
+    align-items: center;
+    text-align: center;
+  }
+
+  .stars { order: 1; }
+  .score { order: 2; }
+  .desc { order: 3; }
+}
