@@ -1,10 +1,10 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, Suspense } from 'react'
 import styles from './page.module.css'
 import { MainLayout } from '@/components/layout/MainLayout'
 import { useSearchParams } from 'next/navigation'
 
-export default function AtendimentosDetalhesPage() {
+function DetalhesContent() {
   const searchParams = useSearchParams();
   const agent = searchParams?.get('agent') || 'Atendente';
   const id = searchParams?.get('id') || '';
@@ -12,8 +12,7 @@ export default function AtendimentosDetalhesPage() {
   const [isExpanded, setIsExpanded] = useState(true);
 
   return (
-    <MainLayout>
-      <div style={{ minHeight: '100vh', padding: 24 }}>
+    <div style={{ minHeight: '100vh', padding: 24 }}>
   <h1 style={{ fontSize: 20, fontWeight: 600, marginTop: 0, marginRight: 0, marginBottom: 16, marginLeft: 0 }}>Detalhe do atendimento</h1>
 
   <div style={{ display: 'flex', flexDirection: 'row', gap: 8, alignItems: 'flex-start', flexWrap: 'nowrap', overflowX: 'auto' }}>
@@ -118,6 +117,15 @@ export default function AtendimentosDetalhesPage() {
           </div>
         </div>
       </div>
+  );
+}
+
+export default function AtendimentosDetalhesPage() {
+  return (
+    <MainLayout>
+      <Suspense fallback={<div style={{ padding:24 }}>Carregando...</div>}>
+        <DetalhesContent />
+      </Suspense>
     </MainLayout>
-  )
+  );
 }
