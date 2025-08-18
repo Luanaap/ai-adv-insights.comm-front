@@ -28,7 +28,7 @@ export function Sidebar({ isVisible, onToggle }: SidebarProps) {
       <Box
         position="fixed"
         left={"6px"}
-        top={"80px"}
+        top={"88px"}
         transition="width 0.3s ease"
         overflow="hidden"
         zIndex={1000}
@@ -111,7 +111,7 @@ export function Sidebar({ isVisible, onToggle }: SidebarProps) {
         <Button
           position="fixed"
           left="8px"
-          top="85px"
+          top="92px"
           width="40px"
           height="40px"
           bg="white"

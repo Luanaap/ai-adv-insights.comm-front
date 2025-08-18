@@ -9,12 +9,18 @@ import { CustomIcon } from "@/infra/icon";
 export function Header() {
   return (
     <Flex 
-      width="100vw"
+      position="fixed"
+      top={0}
+      left={0}
+      right={0}
+      width="100%"
       height="72px"
       justifyContent="space-between"
       alignItems="center"
       px={10}
       background="primary.200"
+      zIndex={1100}
+      boxShadow="0 1px 2px rgba(0,0,0,0.06)"
     >
       <Flex
         justifyContent="center"

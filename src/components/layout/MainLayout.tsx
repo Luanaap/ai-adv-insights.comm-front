@@ -21,15 +21,11 @@ export function MainLayout({ children }: MainLayoutProps) {
       <Sidebar isVisible={sidebarVisible} onToggle={toggleSidebar} />
       <Box
         ml={sidebarVisible ? `${SIDEBAR_WIDTH}px` : `${SIDEBAR_COLLAPSED_WIDTH}px`}
-        mt="17px"
+        pt="88px"
         transition="margin-left 0.3s ease"
-        minHeight="calc(100vh - 72px)"
+        minHeight="100vh"
       >
-        <Box
-          pt="0"
-          pr="32px"
-          pl="0px"
-        >
+        <Box pt="0" pr="32px" pl="0px">
           {children}
         </Box>
       </Box>
