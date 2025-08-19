@@ -2,6 +2,7 @@ import { MainLayout } from "@/components/layout/MainLayout";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { RecordRow } from "@/components/data-grid/types";
 import AtendimentosClient from "./AtendimentosClient";
+import { ChartsOverview } from "./ChartsOverview";
 
 export default function AtendimentosPage() {
   const data: RecordRow[] = [
@@ -59,7 +60,8 @@ export default function AtendimentosPage() {
           <Text fontSize="2xl" fontWeight="bold" color="gray.800" mb={2}>Atendimentos</Text>
           <Text color="gray.600" mb={2}>Consulte áudios, transcrições e avaliações dos atendimentos que realizados aos nossos clientes</Text>
         </Box>
-        <Box flex="1" minH="0">
+  <ChartsOverview />
+  <Box flex="1" minH="0" mt={2}>
           <AtendimentosClient data={data} />
         </Box>
       </Flex>
